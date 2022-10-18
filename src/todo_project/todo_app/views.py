@@ -1,7 +1,7 @@
-from typing import Type, Optional, QuerySet, Any, Dict
+from typing import Type, Optional, Any, Dict
 from django.shortcuts import render
 from django.views.generic import ListView
-from django.db.models import Model
+from django.db.models import Model, QuerySet
 from .models import TodoList, TodoItem
 
 # Create your views here.
