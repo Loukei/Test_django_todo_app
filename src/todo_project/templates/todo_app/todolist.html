@@ -1,0 +1,18 @@
+<!-- src\todo_project\templates\todo_app\todolist.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            TodoList ListView
+        </title>
+    </head>
+    <body>
+        {% if todolist %}
+        <ul>
+            {% for list in todolist %}
+            <li>{{ list }}</li>
+            {% endfor %}
+        </ul>    
+        {% endif %}
+    </body>
+</html>
