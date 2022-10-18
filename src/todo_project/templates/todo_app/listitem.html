@@ -1,0 +1,38 @@
+<!-- src\todo_project\templates\todo_app\listitem.html -->
+{% extends "base.html" %}
+
+{% block title %}
+<title> ListItem lists </title>
+{% endblock %}
+
+{% block todolist  %}
+<div>
+    <div>
+        <h3>Edit list:</h3>
+        <h5>{{ todo_list.title | upper }}</h5>
+    </div>
+    <ul class="w3-ul w3-border">
+        {% for todo in object_list %}
+        <li>
+            <div>
+                <div
+                    role="button"
+                    onclick="location.href='#'">
+                    {{ todo.title }}
+                    (Due {{ todo.due_date | date:"l, F j" }})
+                </div>
+            </div>
+        </li>
+        {% empty %}
+        <p>There are no to-do items in this list.</p>
+        {% endfor %}
+    </ul>
+    <p>
+        <input
+            value="Add a new item"
+            type="button"
+            onclick="location.href='#'" />
+    </p>
+</div>
+
+{% endblock %}

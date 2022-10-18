@@ -11,14 +11,14 @@ class TodoListListView(ListView):
 
 class TodoItemListView(ListView):
     model: Optional[Type[Model]] = TodoItem
-    template_name: str = ""#TODO
+    template_name: str = "todo_app\listitem.html"
 
     def get_queryset(self) -> QuerySet[Any]:
         "Override queryset function by set current list_id"
-        return TodoItem.objects.filter(todo_list_id = self.kwargs["list_id"])
+        return TodoItem.objects.filter(todo_list_id = self.kwargs["listid"])
     
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
-        "Override context_data function to add #TODO: why add more context"
+        "Override context_data function to add current todolist"
         context = super().get_context_data(**kwargs)
-        context["todo_list"] = TodoItem.objects.get(todo_list_id = self.kwargs["list_id"])
+        context["todo_list"] = TodoList.objects.get(id = self.kwargs["listid"])
         return context
