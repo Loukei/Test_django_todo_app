@@ -5,9 +5,13 @@
         <meta charset="utf8">
         {% block title %}
         {% endblock %}
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
     <body>
         <div>
+            <h2>
+                <a href="{% url 'index' %}"> Home </a>
+            </h2>
             {% block todolist  %}
             {% endblock %}
         </div>        
