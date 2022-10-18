@@ -8,7 +8,7 @@ def one_week_hence():
     return timezone.now() + timezone.timedelta(days=7.0)
 
 # Create your models here.
-class TodoList(models):
+class TodoList(models.Model):
     """
     A todolist model to store the todoitem
     This is a personal TodoList app, which means no authentication required.
@@ -23,11 +23,11 @@ class TodoList(models):
     def __str__(self):
         return self.title
 
-class TodoItem(models):
+class TodoItem(models.Model):
     """A todo item is a simple and actionable steps. ex: wash dishses
     """
     title = models.CharField(max_length = 100)
-    describtion = models.CharField(null = True, blank = True)
+    describtion = models.CharField(max_length = 500, null = True, blank = True)
     create_date = models.DateTimeField(auto_now_add = True)
     due_date = models.DateTimeField(default = one_week_hence)
     todo_list = models.ForeignKey(TodoList, on_delete = models.CASCADE)
