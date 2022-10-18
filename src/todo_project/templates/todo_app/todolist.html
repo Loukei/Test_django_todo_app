@@ -1,18 +1,20 @@
 <!-- src\todo_project\templates\todo_app\todolist.html -->
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            TodoList ListView
-        </title>
-    </head>
-    <body>
-        {% if todolist %}
-        <ul>
-            {% for list in todolist %}
-            <li>{{ list }}</li>
-            {% endfor %}
-        </ul>    
-        {% endif %}
-    </body>
-</html>
+
+{% extends "base.html" %}
+
+{% block title %}
+<title> TodoList lists </title>
+{% endblock %}
+
+{% block todolist  %}
+<h2> All lists </h2>
+{% if object_list %}
+<ul>
+    {% for list in object_list %}
+    <li>{{ list }}</li>
+    {% empty %}
+    <h4> Empty list </h4>
+    {% endfor %}
+</ul>    
+{% endif %}
+{% endblock %}
